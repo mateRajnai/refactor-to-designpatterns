@@ -21,6 +21,10 @@ public class NewsPaperReaderTest {
   public void init() {
     publisher = new NewsPaperPublisher();
 
+    reader1 = NewsPaperReader.builder().name("Emese").build();
+    reader2 = NewsPaperReader.builder().name("Zoli").build();
+    reader3 = NewsPaperReader.builder().name("Nora").build();
+
     publisher.subscribe("Blikk", reader1);
     publisher.subscribe("Blikk", reader2);
     publisher.subscribe("Nepszava", reader3);
