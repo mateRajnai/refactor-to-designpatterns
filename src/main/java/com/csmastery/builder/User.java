@@ -9,36 +9,7 @@ public class User {
   private String name;
   private double height;
 
-  public User() throws Exception {
-    this(null);
-  }
-
-  public User(String email) throws Exception {
-    if (Strings.isNullOrEmpty(email))
-      throw new Exception("Email shouldn't be empty");
-    this.email = email;
-  }
-
-  public User(String email, int age) throws Exception {
-    this(email);
-    this.age = age;
-  }
-
-  public User(String email, String name) throws Exception {
-    this(email);
-    this.name = name;
-  }
-
-  public User(String email, double height) throws Exception {
-    this(email);
-    this.height = height;
-  }
-
-  public User(String email, String name, int age, double height) throws Exception {
-    this(email);
-    this.name = name;
-    this.age = age;
-    this.height = height;
+  public User() {
   }
 
   public String getEmail() {
@@ -55,6 +26,52 @@ public class User {
 
   public double getHeight() {
     return height;
+  }
+
+
+
+  public static UserBuilder builder() {
+    return new UserBuilder();
+  }
+
+
+  public static class UserBuilder {
+    private User user = new User();
+
+    private UserBuilder() {
+    }
+
+    public UserBuilder setEmail(String email) {
+      user.email = email;
+      return this;
+    }
+
+    public UserBuilder setAge(int age) {
+      user.age = age;
+      return this;
+    }
+
+    public UserBuilder setName(String name) {
+      user.name = name;
+      return this;
+    }
+
+    public UserBuilder setHeight(double height) {
+      user.height = height;
+      return this;
+    }
+
+    public UserBuilder reset() {
+      user = new User();
+      return this;
+    }
+
+    public User build() throws Exception {
+      if (Strings.isNullOrEmpty(user.email))
+        throw new Exception("Email shouldn't be empty");
+      return user;
+    }
+
   }
 
 }
