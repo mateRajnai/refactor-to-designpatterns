@@ -2,6 +2,9 @@ package com.csmastery.state;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.csmastery.state.model.Frieza;
+import com.csmastery.state.model.Goku;
+import com.csmastery.state.state.TransformationLevel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
