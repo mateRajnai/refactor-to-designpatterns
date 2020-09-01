@@ -1,4 +1,4 @@
-package com.csmastery.state;
+package com.csmastery.state.model;
 
 public class Frieza {
 
